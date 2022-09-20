@@ -73,6 +73,8 @@ public class trabajo {
         
         System.out.println("Escribir RDF/XML...");
         model.write(System.out, "RDF/XML");
+        
+        //SE DEJA COMENTADO, PARA EVITAR QUE IMPRIMA TODO EN CONSOLA
         /* MODELOS DE SERIALIZACION
         System.out.println("Escribir N-Triple");
         model.write(System.out,"N-TRIPLE");
