@@ -1,5 +1,7 @@
 package claserdf;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -30,13 +32,24 @@ public class trabajoProp {
         Resource Javascript = crearRecurso(uri + "Javascript",model);
         Resource PHP = crearRecurso(uri + "PHP",model);
         Resource RankingTop = crearRecurso(uri + "RankingTop",model);
+        Resource RankingJob = crearRecurso(uri + "RankingJob", model);
         
         model.add(Kotlin, LenguajesMobile, RankingTop);
         model.add(Swift, LenguajesMobile, RankingTop);
         model.add(Javascript, LenguajesWeb, RankingTop);
+        model.add(PHP, Backend, RankingJob);
         
         System.out.println("Escribir RDF/XML...");
         model.write(System.out, "RDF/XML");
+        
+        FileOutputStream output = null;
+        try {
+                output = new FileOutputStream("relaciones_trabajadores.rdf");
+        } catch (FileNotFoundException e){
+            System.out.println("No se guardo el archivo");
+        }
+        
+        model.write(output, "RDF/XML");
     }
 
     public static Property crearPropiedad(String uri_base, String id, Model model){
