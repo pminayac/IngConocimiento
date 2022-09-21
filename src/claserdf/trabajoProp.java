@@ -15,36 +15,35 @@ public class trabajoProp {
         String prefijo ="pucp";
         model.setNsPrefix(prefijo,uri);
         
-        Property LenguajesRentables = crearPropiedad(uri, "LenguajesRentables",model);
-        Property LenguajesMobile = crearPropiedad(uri, "LenguajesMobile",model);
-        Property LenguajesWeb = crearPropiedad(uri, "LenguajesWeb",model);
-        Property Frontend = crearPropiedad(uri, "Frontend",model);
-        Property Backend = crearPropiedad(uri, "Backend",model);
+        Property LenguajeTop = crearPropiedad(uri, "LenguajeTop",model);
+        Property BestLangMobil = crearPropiedad(uri, "BestLangMobil",model);
+        Property BestLangFront = crearPropiedad(uri, "LenguajesWeb",model);
+        Property BestLangBack = crearPropiedad(uri, "Frontend",model);
+        
         //PROPIEDADES
         
-        model.add(LenguajesMobile, RDFS.subPropertyOf, LenguajesRentables);
-        model.add(LenguajesWeb, RDFS.subPropertyOf, LenguajesRentables);
-        model.add(Frontend, RDFS.subPropertyOf, LenguajesWeb);
-        model.add(Backend, RDFS.subPropertyOf, LenguajesWeb);
+        model.add(BestLangMobil, RDFS.subPropertyOf, LenguajeTop);
+        model.add(BestLangFront, RDFS.subPropertyOf, LenguajeTop);
+        model.add(BestLangBack, RDFS.subPropertyOf, LenguajeTop);
         
         Resource Kotlin = crearRecurso(uri + "Kotlin",model);
         Resource Swift = crearRecurso(uri + "Swift",model);
         Resource Javascript = crearRecurso(uri + "Javascript",model);
         Resource PHP = crearRecurso(uri + "PHP",model);
-        Resource RankingTop = crearRecurso(uri + "RankingTop",model);
-        Resource RankingJob = crearRecurso(uri + "RankingJob", model);
+        Resource Ranking1 = crearRecurso(uri + "Ranking1",model);
+        Resource Ranking2 = crearRecurso(uri + "Ranking2", model);
         
-        model.add(Kotlin, LenguajesMobile, RankingTop);
-        model.add(Swift, LenguajesMobile, RankingTop);
-        model.add(Javascript, LenguajesWeb, RankingTop);
-        model.add(PHP, Backend, RankingJob);
+        model.add(Kotlin, LenguajeTop, Ranking2);
+        model.add(Kotlin, BestLangMobil, Ranking1);
+        model.add(Javascript,LenguajeTop, Ranking1 );
+        model.add(Javascript,BestLangFront,Ranking1 );
         
         System.out.println("Escribir RDF/XML...");
         model.write(System.out, "RDF/XML");
         
         FileOutputStream output = null;
         try {
-                output = new FileOutputStream("relaciones_trabajadores.rdf");
+                output = new FileOutputStream("propiedades.rdf");
         } catch (FileNotFoundException e){
             System.out.println("No se guardo el archivo");
         }

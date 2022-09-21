@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
@@ -39,6 +40,8 @@ public class trabajo {
         Resource lenguajeMongoDB = Recurso(uri,"MongoDB", model);
         Resource lenguajeProlog = Recurso(uri, "Prolog", model);
         Resource lenguajeLisp = Recurso(uri, "Lisp", model);
+        //Resource desarrollador = Recurso(uri, "apple", model);
+        //Resource lanzamiento = Recurso(uri, "year_2014", model);
 
         //Subclases
         model.add(lenguajeAltoNivel, RDFS.subClassOf, lenguajeProgramacion);
@@ -68,8 +71,19 @@ public class trabajo {
         
         //NODO EN BLANCO
         Resource blankNode = model.createResource();
-        blankNode.addProperty(VCARD.Family ,lenguajeAsembler);
+        blankNode.addProperty(RDF.language ,lenguajeAsembler);
         lenguajeBajoNivel.addProperty(VCARD.N, blankNode);
+        
+        Resource blankNode2 = model.createResource();
+        Property nacimiento = model.createProperty(uri, "nacimiento");
+        Property desarrollador = model.createProperty(uri, "desarrollador");
+        Property anhoLanzamiento = model.createProperty(uri, "anhoLanzamiento");
+        
+        blankNode2.addProperty(desarrollador,"apple");
+        blankNode2.addProperty(anhoLanzamiento, "2014");
+        lenguajeSwift.addProperty(nacimiento, blankNode2);
+        
+        
         
         System.out.println("Escribir RDF/XML...");
         model.write(System.out, "RDF/XML");

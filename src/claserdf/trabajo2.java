@@ -21,8 +21,6 @@ public class trabajo2 {
         StmtIterator iter = model.listStatements(selector);
         while (iter.hasNext()){
             System.out.println(iter.nextStatement().toString());
-        }
-        
-        
+        }  
     }
 }

@@ -7,7 +7,12 @@
     xmlns:j.1="http://www.pucp.edu.pe/Lenguaje Orientado a ">
   <j.0:Procedimental rdf:about="http://www.pucp.edu.pe/Cobol"/>
   <j.0:Scripting rdf:about="http://www.pucp.edu.pe/MongoDB"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Swift"/>
+  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Swift">
+    <pucp:nacimiento rdf:parseType="Resource">
+      <pucp:anhoLanzamiento>2014</pucp:anhoLanzamiento>
+      <pucp:desarrollador>apple</pucp:desarrollador>
+    </pucp:nacimiento>
+  </j.1:Objetos>
   <j.0:Funcional rdf:about="http://www.pucp.edu.pe/Haskell"/>
   <j.1:Objetos rdf:about="http://www.pucp.edu.pe/C#"/>
   <j.0:Lógico rdf:about="http://www.pucp.edu.pe/Prolog"/>
@@ -19,7 +24,7 @@
   <j.0:Lógico rdf:about="http://www.pucp.edu.pe/Lisp"/>
   <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguajes de Bajo Nivel">
     <vcard:N rdf:parseType="Resource">
-      <vcard:Family rdf:resource="http://www.pucp.edu.pe/Asembler"/>
+      <rdf:language rdf:resource="http://www.pucp.edu.pe/Asembler"/>
     </vcard:N>
     <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Programación"/>
   </rdf:Description>
