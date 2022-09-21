@@ -15,29 +15,24 @@ public class trabajoProp {
         String prefijo ="pucp";
         model.setNsPrefix(prefijo,uri);
         
-        Property LenguajeTop = crearPropiedad(uri, "LenguajeTop",model);
-        Property BestLangMobil = crearPropiedad(uri, "BestLangMobil",model);
-        Property BestLangFront = crearPropiedad(uri, "LenguajesWeb",model);
-        Property BestLangBack = crearPropiedad(uri, "Frontend",model);
-        
+        Property puestoMejoresLenguajes = crearPropiedad(uri, "puestoMejoresLenguajes",model);
+        Property puestoMejLengMovil  = crearPropiedad(uri,"puestoMejLengMovil",model);
+
         //PROPIEDADES
         
-        model.add(BestLangMobil, RDFS.subPropertyOf, LenguajeTop);
-        model.add(BestLangFront, RDFS.subPropertyOf, LenguajeTop);
-        model.add(BestLangBack, RDFS.subPropertyOf, LenguajeTop);
-        
+        model.add(puestoMejLengMovil, RDFS.subPropertyOf, puestoMejoresLenguajes);
+   
         Resource Kotlin = crearRecurso(uri + "Kotlin",model);
         Resource Swift = crearRecurso(uri + "Swift",model);
         Resource Javascript = crearRecurso(uri + "Javascript",model);
         Resource PHP = crearRecurso(uri + "PHP",model);
         Resource Ranking1 = crearRecurso(uri + "Ranking1",model);
+        
         Resource Ranking2 = crearRecurso(uri + "Ranking2", model);
         
-        model.add(Kotlin, LenguajeTop, Ranking2);
-        model.add(Kotlin, BestLangMobil, Ranking1);
-        model.add(Javascript,LenguajeTop, Ranking1 );
-        model.add(Javascript,BestLangFront,Ranking1 );
-        
+        model.add(Kotlin, puestoMejoresLenguajes,Ranking2 );
+        model.add(Kotlin, puestoMejLengMovil, Ranking1);
+
         System.out.println("Escribir RDF/XML...");
         model.write(System.out, "RDF/XML");
         

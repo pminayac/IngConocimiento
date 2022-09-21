@@ -15,7 +15,7 @@ public class trabajo2 {
         Model model = ModelFactory.createDefaultModel();
         model.read(inputFileName);
         
-        String resourcedURI = model.expandPrefix("pucp:lenguajeFuncional");
+        String resourcedURI = model.expandPrefix("pucp:LenguajeFuncional");
         Resource resource = model.getResource(resourcedURI);
         Selector selector = new SimpleSelector(resource, RDFS.subClassOf, (RDFNode) null);
         StmtIterator iter = model.listStatements(selector);

@@ -1,5 +1,7 @@
 package claserdf;
 
+import static claserdf.trabajoProp.crearPropiedad;
+import static claserdf.trabajoProp.crearRecurso;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import org.apache.jena.rdf.model.Model;
@@ -16,14 +18,14 @@ public class trabajo {
         String uri = "http://www.pucp.edu.pe/";
         String ns = "pucp";
         model.setNsPrefix(ns, uri);
-        Resource lenguajeProgramacion = Recurso(uri, "Lenguajes de Programación", model);
-        Resource lenguajeAltoNivel = Recurso(uri, "Lenguajes de Alto Nivel", model);
-        Resource lenguajeBajoNivel = Recurso(uri, "Lenguajes de Bajo Nivel", model);
-        Resource lenguajeProcedimental = Recurso(uri, "Lenguaje Procedimental", model);
-        Resource lenguajeFuncional = Recurso(uri, "Lenguaje Funcional", model);
-        Resource lenguajeOrientadoObjetos = Recurso(uri, "Lenguaje Orientado a Objetos", model);
-        Resource lenguajeScriptingl = Recurso(uri, "Lenguaje Scripting", model);
-        Resource lenguajeLogico = Recurso(uri, "Lenguaje Lógico", model);
+        Resource lenguajeProgramacion = Recurso(uri, "LenguajesdeProgramación", model);
+        Resource lenguajeAltoNivel = Recurso(uri, "LenguajesdeAltoNivel", model);
+        Resource lenguajeBajoNivel = Recurso(uri, "LenguajesdeBajoNivel", model);
+        Resource lenguajeProcedimental = Recurso(uri, "LenguajeProcedimental", model);
+        Resource lenguajeFuncional = Recurso(uri, "LenguajeFuncional", model);
+        Resource lenguajeOrientadoObjetos = Recurso(uri, "LenguajeOrientadoaObjetos", model);
+        Resource lenguajeScriptingl = Recurso(uri, "LenguajeScripting", model);
+        Resource lenguajeLogico = Recurso(uri, "LenguajeLógico", model);
         Resource lenguajeAsembler = Recurso(uri, "Asembler", model);
         Resource lenguajeFortran = Recurso(uri, "Fortran", model);
         Resource lenguajeCobol = Recurso(uri, "Cobol", model);
@@ -40,8 +42,6 @@ public class trabajo {
         Resource lenguajeMongoDB = Recurso(uri,"MongoDB", model);
         Resource lenguajeProlog = Recurso(uri, "Prolog", model);
         Resource lenguajeLisp = Recurso(uri, "Lisp", model);
-        //Resource desarrollador = Recurso(uri, "apple", model);
-        //Resource lanzamiento = Recurso(uri, "year_2014", model);
 
         //Subclases
         model.add(lenguajeAltoNivel, RDFS.subClassOf, lenguajeProgramacion);
@@ -60,7 +60,7 @@ public class trabajo {
         model.add(lenguajeJava, RDF.type, lenguajeOrientadoObjetos);
         model.add(lenguajePython, RDF.type, lenguajeOrientadoObjetos);
         model.add(lenguajeC, RDF.type, lenguajeOrientadoObjetos);
-        model.add(lenguajeKotlin, RDF.type, lenguajeOrientadoObjetos);
+        //model.add(lenguajeKotlin, RDF.type, lenguajeOrientadoObjetos);
         model.add(lenguajeGo, RDF.type, lenguajeOrientadoObjetos);
         model.add(lenguajeSwift, RDF.type, lenguajeOrientadoObjetos);
         model.add(lenguajeTypeScript, RDF.type, lenguajeScriptingl);
@@ -70,10 +70,7 @@ public class trabajo {
         model.add(lenguajeLisp, RDF.type, lenguajeLogico);
         
         //NODO EN BLANCO
-        Resource blankNode = model.createResource();
-        blankNode.addProperty(RDF.language ,lenguajeAsembler);
-        lenguajeBajoNivel.addProperty(VCARD.N, blankNode);
-        
+
         Resource blankNode2 = model.createResource();
         Property nacimiento = model.createProperty(uri, "nacimiento");
         Property desarrollador = model.createProperty(uri, "desarrollador");
@@ -82,8 +79,29 @@ public class trabajo {
         blankNode2.addProperty(desarrollador,"apple");
         blankNode2.addProperty(anhoLanzamiento, "2014");
         lenguajeSwift.addProperty(nacimiento, blankNode2);
+
+        //PROPIEDADES Y SUBPROPIEDADES
         
+        Property puestoMejoresLenguajes = crearPropiedad(uri, "puestoMejoresLenguajes",model);
+        Property puestoMejLengMovil  = crearPropiedad(uri,"puestoMejLengMovil",model);
         
+        model.add(puestoMejLengMovil, RDFS.subPropertyOf, puestoMejoresLenguajes);
+        
+        Resource Kotlin = crearRecurso(uri + "Kotlin",model);
+        Resource Swift = crearRecurso(uri + "Swift",model);
+        Resource Javascript = crearRecurso(uri + "Javascript",model);
+        Resource PHP = crearRecurso(uri + "PHP",model);
+        Resource Ranking1 = crearRecurso(uri + "Ranking1",model);
+        
+        Resource Ranking2 = crearRecurso(uri + "Ranking2", model);
+        
+        //model.add(Kotlin, puestoMejoresLenguajes,Ranking2 );
+        model.add(Kotlin, puestoMejLengMovil, Ranking1);
+        
+        //DOMINIO
+        
+        model.add( puestoMejoresLenguajes , RDFS.domain , lenguajeAltoNivel );
+        model.add( puestoMejLengMovil , RDFS.domain , lenguajeOrientadoObjetos );
         
         System.out.println("Escribir RDF/XML...");
         model.write(System.out, "RDF/XML");

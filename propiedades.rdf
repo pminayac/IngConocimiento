@@ -2,17 +2,11 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:pucp="http://www.pucp.edu.pe/"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Frontend">
-    <rdfs:subPropertyOf rdf:resource="http://www.pucp.edu.pe/LenguajeTop"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajesWeb">
-    <rdfs:subPropertyOf rdf:resource="http://www.pucp.edu.pe/LenguajeTop"/>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/puestoMejLengMovil">
+    <rdfs:subPropertyOf rdf:resource="http://www.pucp.edu.pe/puestoMejoresLenguajes"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.pucp.edu.pe/Kotlin">
-    <pucp:BestLangMobil rdf:resource="http://www.pucp.edu.pe/Ranking1"/>
-    <pucp:LenguajeTop rdf:resource="http://www.pucp.edu.pe/Ranking2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/BestLangMobil">
-    <rdfs:subPropertyOf rdf:resource="http://www.pucp.edu.pe/LenguajeTop"/>
+    <pucp:puestoMejLengMovil rdf:resource="http://www.pucp.edu.pe/Ranking1"/>
+    <pucp:puestoMejoresLenguajes rdf:resource="http://www.pucp.edu.pe/Ranking2"/>
   </rdf:Description>
 </rdf:RDF>

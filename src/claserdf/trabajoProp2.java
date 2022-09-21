@@ -12,7 +12,7 @@ import org.apache.jena.rdf.model.StmtIterator;
 
 public class trabajoProp2 {
     public static void main(String[] args){
-        String inputFileName = "propiedades.rdf";
+        String inputFileName = "Proyecto.rdf";
         Model model = ModelFactory.createDefaultModel();
         model.read(inputFileName);
         InfModel inf = ModelFactory.createRDFSModel(model) ;
@@ -20,13 +20,13 @@ public class trabajoProp2 {
         String resourceURI = model.expandPrefix("pucp:Kotlin");
         Resource kotlin = model.getResource(resourceURI);
         
-        resourceURI = model.expandPrefix("pucp:RankingTop");
-        Resource RankingTop = model.getResource(resourceURI);
-        String propertyURI = model.expandPrefix("pucp:LenguajesRentables");
-        Property LenguajesRentables = model.getProperty(propertyURI);
+        resourceURI = model.expandPrefix("pucp:Ranking1");
+        Resource Ranking2 = model.getResource(resourceURI);
+        String propertyURI = model.expandPrefix("pucp:puestoMejoresLenguajes");
+        Property puestoMejoresLenguajes = model.getProperty(propertyURI);
         
-        Selector selector = new SimpleSelector(kotlin,LenguajesRentables, RankingTop);
-        StmtIterator iter = model.listStatements(selector);
+        Selector selector = new SimpleSelector(kotlin,puestoMejoresLenguajes, Ranking2);
+        StmtIterator iter = inf.listStatements(selector);
         while(iter.hasNext()){
             System.out.println(iter.nextStatement().toString());
         }

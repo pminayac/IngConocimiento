@@ -1,53 +1,58 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
     xmlns:pucp="http://www.pucp.edu.pe/"
-    xmlns:j.0="http://www.pucp.edu.pe/Lenguaje "
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:j.1="http://www.pucp.edu.pe/Lenguaje Orientado a ">
-  <j.0:Procedimental rdf:about="http://www.pucp.edu.pe/Cobol"/>
-  <j.0:Scripting rdf:about="http://www.pucp.edu.pe/MongoDB"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Swift">
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <pucp:LenguajeProcedimental rdf:about="http://www.pucp.edu.pe/Cobol"/>
+  <pucp:LenguajeScripting rdf:about="http://www.pucp.edu.pe/MongoDB"/>
+  <pucp:LenguajeOrientadoaObjetos rdf:about="http://www.pucp.edu.pe/Swift">
     <pucp:nacimiento rdf:parseType="Resource">
       <pucp:anhoLanzamiento>2014</pucp:anhoLanzamiento>
       <pucp:desarrollador>apple</pucp:desarrollador>
     </pucp:nacimiento>
-  </j.1:Objetos>
-  <j.0:Funcional rdf:about="http://www.pucp.edu.pe/Haskell"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/C#"/>
-  <j.0:Lógico rdf:about="http://www.pucp.edu.pe/Prolog"/>
-  <j.0:Funcional rdf:about="http://www.pucp.edu.pe/Scala"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Kotlin"/>
-  <j.0:Scripting rdf:about="http://www.pucp.edu.pe/TypeScript"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Java"/>
-  <j.0:Scripting rdf:about="http://www.pucp.edu.pe/SQL"/>
-  <j.0:Lógico rdf:about="http://www.pucp.edu.pe/Lisp"/>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguajes de Bajo Nivel">
-    <vcard:N rdf:parseType="Resource">
-      <rdf:language rdf:resource="http://www.pucp.edu.pe/Asembler"/>
-    </vcard:N>
-    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Programación"/>
-  </rdf:Description>
-  <j.0:Procedimental rdf:about="http://www.pucp.edu.pe/Fortran"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Python"/>
-  <j.1:Objetos rdf:about="http://www.pucp.edu.pe/Go"/>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguaje Orientado a Objetos">
-    <rdfs:subClassOf>
-      <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguajes de Alto Nivel">
-        <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Programación"/>
+  </pucp:LenguajeOrientadoaObjetos>
+  <pucp:LenguajeFuncional rdf:about="http://www.pucp.edu.pe/Haskell"/>
+  <pucp:LenguajeOrientadoaObjetos rdf:about="http://www.pucp.edu.pe/C#"/>
+  <pucp:LenguajeLógico rdf:about="http://www.pucp.edu.pe/Prolog"/>
+  <pucp:LenguajeFuncional rdf:about="http://www.pucp.edu.pe/Scala"/>
+  <pucp:LenguajeScripting rdf:about="http://www.pucp.edu.pe/TypeScript"/>
+  <pucp:LenguajeLógico rdf:about="http://www.pucp.edu.pe/Lisp"/>
+  <pucp:LenguajeProcedimental rdf:about="http://www.pucp.edu.pe/Fortran"/>
+  <pucp:LenguajeOrientadoaObjetos rdf:about="http://www.pucp.edu.pe/Python"/>
+  <pucp:LenguajeOrientadoaObjetos rdf:about="http://www.pucp.edu.pe/Go"/>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/puestoMejLengMovil">
+    <rdfs:domain>
+      <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajeOrientadoaObjetos">
+        <rdfs:subClassOf>
+          <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajesdeAltoNivel">
+            <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/LenguajesdeProgramación"/>
+          </rdf:Description>
+        </rdfs:subClassOf>
       </rdf:Description>
-    </rdfs:subClassOf>
+    </rdfs:domain>
+    <rdfs:subPropertyOf>
+      <rdf:Description rdf:about="http://www.pucp.edu.pe/puestoMejoresLenguajes">
+        <rdfs:domain rdf:resource="http://www.pucp.edu.pe/LenguajesdeAltoNivel"/>
+      </rdf:Description>
+    </rdfs:subPropertyOf>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguaje Lógico">
-    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Alto Nivel"/>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/Kotlin">
+    <pucp:puestoMejLengMovil rdf:resource="http://www.pucp.edu.pe/Ranking1"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguaje Funcional">
-    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Alto Nivel"/>
+  <pucp:LenguajeOrientadoaObjetos rdf:about="http://www.pucp.edu.pe/Java"/>
+  <pucp:LenguajeScripting rdf:about="http://www.pucp.edu.pe/SQL"/>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajesdeBajoNivel">
+    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/LenguajesdeProgramación"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguaje Scripting">
-    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Alto Nivel"/>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajeScripting">
+    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/LenguajesdeAltoNivel"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.pucp.edu.pe/Lenguaje Procedimental">
-    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/Lenguajes de Alto Nivel"/>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajeProcedimental">
+    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/LenguajesdeAltoNivel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajeFuncional">
+    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/LenguajesdeAltoNivel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.pucp.edu.pe/LenguajeLógico">
+    <rdfs:subClassOf rdf:resource="http://www.pucp.edu.pe/LenguajesdeAltoNivel"/>
   </rdf:Description>
 </rdf:RDF>
